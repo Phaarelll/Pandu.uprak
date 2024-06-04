@@ -1,9 +1,9 @@
 @import url(clash-display.css);
 
 :root {
-    --c-dark: #212529;
-    --c-brand: #4e57e4;
-    --c-brand-ligth: rgb(44, 0, 44);
+    --c-dark: #000000;
+    --c-brand: #000000;
+    --c-brand-ligth: rgb(255, 255, 255);
     --c-brand-rgb: #000000;
     --c-body: #000000;
     --font-base: "ClashDisplay", sans-serif;
@@ -45,9 +45,9 @@ img {
     margin-right: auto;
 }
 
-.section-pading{
+.section-padding {
     padding-top: 80px;
-    padding-bottom: 80%;
+    padding-bottom: 80px;
 }
 
 .blog-pading {
@@ -94,20 +94,32 @@ img {
     font-weight: 600;
     font-size: 14px;
     text-transform: uppercase;
-    border-radius: 0;
     padding: 10px 24px;
-}
-
-.btn-brand {
-    background-color: var(--c-brand);
-    border-color: white;
-}
-
-.btn-brand:hover {
-    background-color: var(--c-brand-ligth);
-    border-color: var(--c-brand-ligth);
+  }
+  
+  .btn-brand {
+    background-color: black;
+    border-color: black;
     color: white;
-}
+  }
+  
+  .btn-brand:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+  }
+  
+  .btn-light {
+    background-color: white;
+    border-color: black;
+    color: black;
+  }
+  
+  .btn-light:hover {
+    background-color: black;
+    border-color: black;
+    color: white;
+  }
 
 /* Iconbox */
 .iconbox {
@@ -139,22 +151,25 @@ img {
 }
 
 /* Hero */
-#hero {
-    background: url(../images/hero-1.jpg);
-    background-position: center;
-    background-size: cover;
+.back-video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
-/* Secition Title */
-.section-title {
-    margin-bottom: 60px;
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 100%;
+    height: auto;
+  }
 }
 
-/* Services */
-.service {
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    width: auto;
+    height: 100%;
+  }
 }
 
 .service::after {
@@ -187,12 +202,8 @@ img {
 
 /* Counter */
 #counter {
-    background: linear-gradient(
-        rgb(var(--c-brand-rgb), 0.8)
-        rgb(var(--c-brand-rgb), 0.8)
-    ),
-    url(../images/counter.jpg);
-    background-position:center ;
+    background: url(../images/mini0.jpg);
+    background-position: center ;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -211,3 +222,117 @@ img {
     opacity: 1;
     top: 50%;
 }
+
+/* Review new */
+.review small {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: purple;
+}
+
+.review-head {
+    position: relative;
+}
+
+.review-head::after {
+    content: "";
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: -14px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+
+.team-member-content {
+    background-color: black;
+    position: absolute;
+    bottom: -24px;
+    left: 50%;
+    width: calc(100% - 50px);
+    transform: translateX(-50%);
+    padding: 24px;
+    transition: var(--transition);
+    opacity: 0;
+  }
+  
+  .team-member:hover .team-member-content {
+    opacity: 1;
+    bottom: 24px;
+  }
+
+  #contact {
+    position: relative;
+    z-index: 2;
+}
+
+.contact::after {
+    content: "";
+    width: 100%;
+    height: 70%;
+    background: black;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.contact .from-control {
+    border-radius: 0;
+    border-color: #000000;
+}
+
+.contact .from-control:focus {
+    box-shadow: none;
+    border-color: rgb(0, 0, 0);
+}
+
+footer {
+    padding: 120px;
+  }
+  
+  .footer-top {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer-bottom {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  footer li,
+  footer p,
+  footer a {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  footer .line {
+    width: 40px;
+    height: 4px;
+    background-color: white;
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15%;
+  }
+  
+  .social-icons a:hover {
+    background-color: lightgray;
+    color: black;
+  }
